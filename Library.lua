@@ -394,9 +394,14 @@ type IconModule = {
 }
 
 local FetchIcons, Icons = pcall(function()
-    return (loadstring(
-        game:HttpGet("https://raw.githubusercontent.com/mstudio45/lucide-roblox-direct/refs/heads/main/source.lua")
-    ) :: () -> IconModule)()
+    local res = game:HttpGet("https://raw.githubusercontent.com/mstudio45/lucide-roblox-direct/refs/heads/main/source.lua")
+    if typeof(res) == "string" and #res > 0 then
+        local fn = loadstring(res)
+        if typeof(fn) == "function" then
+            return fn()
+        end
+    end
+    return nil
 end)
 
 function IsValidCustomIcon(Icon: string)
