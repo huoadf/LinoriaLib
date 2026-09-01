@@ -89,6 +89,31 @@ local Buttons = {}
 local Tooltips = {}
 local Dialogues = {}
 
+if typeof(getgenv) == "function" then
+    getgenv().Toggles = Toggles
+    getgenv().Options = Options
+    getgenv().Labels = Labels
+    getgenv().Buttons = Buttons
+    getgenv().Tooltips = Tooltips
+    getgenv().Dialogues = Dialogues
+end
+if typeof(_G) == "table" then
+    _G.Toggles = Toggles
+    _G.Options = Options
+    _G.Labels = Labels
+    _G.Buttons = Buttons
+    _G.Tooltips = Tooltips
+    _G.Dialogues = Dialogues
+end
+if typeof(shared) == "table" then
+    shared.Toggles = Toggles
+    shared.Options = Options
+    shared.Labels = Labels
+    shared.Buttons = Buttons
+    shared.Tooltips = Tooltips
+    shared.Dialogues = Dialogues
+end
+
 -- https://github.com/deividcomsono/Obsidian/blob/main/Library.lua#L30
 local BaseURL = "https://raw.githubusercontent.com/mstudio45/LinoriaLib/refs/heads/main/"
 local CustomImageManager = {}
